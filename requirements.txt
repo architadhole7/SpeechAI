@@ -1,5 +1,6 @@
-flask
+Flask
 flask-cors
+gunicorn
 language-tool-python
 vaderSentiment
-sentence-transformers
+

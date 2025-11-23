@@ -1,21 +1,24 @@
-# Use a lightweight Python image
 FROM python:3.10-slim
 
-# Install Java (required for language-tool-python)
-RUN apt-get update && apt-get install -y default-jre && apt-get clean
+# Install Java for language-tool-python
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jre-headless && \
+    apt-get clean
 
-# Create working directory
+# Set work directory
 WORKDIR /app
 
-# Install Python dependencies first (faster builds)
+# Copy requirements
 COPY requirements.txt .
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
+# Copy the whole project
 COPY . .
 
-# Expose port for Flask
+# Expose port
 EXPOSE 5000
 
-# Run the Flask app
-CMD ["python", "app.py"]
+# Start the app
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "api.app:app"]

@@ -1,4 +1,5 @@
 import re
+import os
 from collections import Counter
 import language_tool_python
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -215,6 +216,12 @@ def score():
     results = compute_scores(text, wpm)
     return jsonify(results)
 
+@app.route("/healthz")
+def health():
+    return "ok", 200
+
 # Run Program
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+

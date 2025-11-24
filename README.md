@@ -175,6 +175,7 @@ I am 13 years old. I live with my family...
 1. Create Virtual Environment
 
 python -m venv venv
+
 venv\Scripts\activate   # Windows
 
 2. Install dependencies

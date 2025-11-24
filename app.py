@@ -216,9 +216,6 @@ def score():
     results = compute_scores(text, wpm)
     return jsonify(results)
 
-@app.route("/healthz")
-def health():
-    return "ok", 200
 
 # Run Program
 if __name__ == "__main__":

@@ -161,15 +161,13 @@ I am 13 years old. I live with my family...
 
 ## Notes
 
-The scoring is dynamic and proportional based on the rubric.
+**Deployment Limitation**
+The current version of the project uses LanguageTool for grammar analysis, which requires a local Java Runtime Environment (JRE). This significantly increases the memory footprint during build and runtime.
 
-You can adjust weights or thresholds in app.py to tune the evaluation.
+At this time, I am unable to subscribe to paid hosting services, so deployment is not feasible. The backend logic, scoring system, and UI are fully functional; only hosting is restricted due to resource limitations.
 
-Supports future NLP enhancements like semantic similarity scoring via **sentence-transformers**.
 
----
 
-## Prototype Link:
 
 
 
